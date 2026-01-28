@@ -16,10 +16,11 @@ final class StepCountViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        let title = AppModel.instance.appState.nextStateButtonLabel
-        
-        startButton
-            .setTitle(title, for: .normal)
+        updateButton()
+//        let title = AppModel.instance.appState.nextStateButtonLabel
+//        
+//        startButton
+//            .setTitle(title, for: .normal)
 //        startButton.addTarget(self, action: #selector(startStopPause(_:)), for: .touchUpInside)
 //        
 //        let stackView = UIStackView(arrangedSubviews: [startButton])
@@ -28,6 +29,13 @@ final class StepCountViewController: UIViewController {
         AppModel.instance.start()
         // When start is tapped, app moves to in-progress
         AppModel.instance.appState = .running
+//        let title = AppModel.instance.appState.nextStateButtonLabel
+//        startButton.setTitle(title, for: .normal)
+        // MARK: - updateButton replace above two line of code
+        updateButton()
+    }
+    
+    private func updateButton(){
         let title = AppModel.instance.appState.nextStateButtonLabel
         startButton.setTitle(title, for: .normal)
     }

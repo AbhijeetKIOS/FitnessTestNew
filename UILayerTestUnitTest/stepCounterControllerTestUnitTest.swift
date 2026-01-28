@@ -8,7 +8,7 @@
 import XCTest
 @testable import FitnessTest
 
-final class UILayerTestUnitTest: XCTestCase {
+final class stepCounterControllerTestUnitTest: XCTestCase {
 
     var sut: StepCountViewController!
     
@@ -36,8 +36,13 @@ final class UILayerTestUnitTest: XCTestCase {
         XCTAssertEqual(text, AppState.running.nextStateButtonLabel)
     }
     
+    // MARK: - Initial state
+    
     func testController_whenCreated_buttonLabelIsStart(){
         sut.viewDidLoad()
+        let text = sut.startButton.title(for: .normal)
+        XCTAssertEqual(text, AppState.notStarted.nextStateButtonLabel)
+       
         
     }
     
