@@ -17,12 +17,16 @@ final class stepCounterControllerTestUnitTest: XCTestCase {
         sut = StepCountViewController()
     }
     
+    fileprivate func whenStartButtonTapped() {
+        // When
+        sut.startStopPause(nil)
+    }
+    
     func testController_whenStartTapped_appInProgress(){
         // Given
         sut = StepCountViewController()
 
-        // When
-        sut.startStopPause(nil)
+        whenStartButtonTapped()
 
         // Then
         let state = AppModel.instance.appState
@@ -30,7 +34,7 @@ final class stepCounterControllerTestUnitTest: XCTestCase {
     }
     
     func testController_whenStartTapped_buttonLabelIsPause(){
-        sut.startStopPause(nil)
+        whenStartButtonTapped()
         
         let text = sut.startButton.title(for: .normal)
         XCTAssertEqual(text, AppState.running.nextStateButtonLabel)
